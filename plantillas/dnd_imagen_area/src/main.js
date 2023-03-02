@@ -10,12 +10,14 @@ onload = () => setup();
 
 function setup() {
   console.log("setup");
+  console.log("areas", areas);
+  console.log("cajas",cajas);
 
   utils.eliminarElemento("divCargandoDatos");
   utils.renderTexto("divTitulo1", textos.titulo, "h1");
   utils.renderTexto(
     "divInstrucciones",
-    textos.instruccion,
+    textos.instrucciones,
     "p",
     "alert alert-secondary"
   );

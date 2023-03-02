@@ -4,7 +4,10 @@
   "description": "back-end creador de mini actividades en HTML",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./index.mjs"
+    "dev:1": "nodemon ./index.mjs  --ignore ./plantillas",
+    "dev": "nodemon ./index.mjs --ignore \"./plantillas\" --ignore \"./builds\" --ignore \"./zips\""
+
+    
   },
   "repository": {
     "type": "git",
