@@ -1,8 +1,10 @@
 import * as utils from "./utils";
 import eventHandlers from "./handlers";
-import textos from "./data/textos.json";
-import areas from "./data/areas.json";
-import cajas from "./data/cajas.json";
+import data from "./data.json";
+
+const textos = data[0].textos;
+const areas = data[0].areas;
+const cajas = data[0].cajas;
 
 onload = () => setup();
 
