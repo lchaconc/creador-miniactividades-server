@@ -1,6 +1,6 @@
 const webpack = require("webpack");
-const configProd = require("./webpack.config.app.prod.js");
-const configDev = require("./webpack.config.app.dev.js");
+const configProd = require("./webpack.prod.js");
+const configDev = require("./webpack.dev.js");
 
 function buildProd(idApp) {
   //console.log("iniciando el BUILD de producción con el valor de idApp:", idApp);

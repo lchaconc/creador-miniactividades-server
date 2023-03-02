@@ -1,7 +1,9 @@
 import express from "express";
 import dotenv from "dotenv";
+import routerDndImagenArea from "./routes/route.dnd-imagen-area.mjs";
 
-//import indexRoutes from "./routes/index.routes.js";
+
+
 //import conectDB from "./db.conexion.js" ;
 
 
@@ -15,7 +17,17 @@ app.use(express.json());
 
 app.use(express.static("./public"));
 
-//app.use("/descargas", express.static("./zips"));
+//bild:
+app.use("/descarga/", express.static("./zips"));
+
+//dev:
+app.use("/prevista/", express.static("./builds"));
+
+
+
+app.use("/api/dnd-imagen-area", routerDndImagenArea )
+
+
 
 //app.use("/api/dnd-imagen-area", routesDndImagenArea);
 
