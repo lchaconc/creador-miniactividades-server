@@ -13,7 +13,7 @@ module.exports = (idApp)=> {
   return {
     entry: "./plantillas/dnd_imagen_area/src/main.js",    
     output: {                
-        path: path.resolve( __dirname,  `../../dist/${idApp}`),
+        path: path.resolve( __dirname,  `../../builds/${idApp}`),
         filename: "bundle.[contenthash].js"
     },
     mode: "production",
