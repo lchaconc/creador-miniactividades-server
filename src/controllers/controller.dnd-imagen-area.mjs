@@ -4,6 +4,7 @@ import {
 } from "../../plantillas/dnd_imagen_area/builder.js";
 import DndImagenArea from "../models/model.dnd-imagen-area.mjs";
 import { writeJson } from "../utils/staticdata.mjs";
+import fs from "fs";
 
 
 
@@ -115,8 +116,12 @@ export async function eliminarCaja (req, res) {
           { $pull: { cajas: { id: idCaja } } },
           { new: true }
         );
-        console.log(`Objeto actualizado: ${documentoActualizado}`);
-        res.json({isOk: true, msj: documentoActualizado})
+
+        const imagePath = `./plantillas/dnd_imagen_area/public/assets/${idCaja}`;
+        fs.unlinkSync(imagePath); // Elimina la imagen del sistema de archivos
+
+        console.log(`Objeto actualizado: ${documentoActualizado.cajas}`);
+        res.json({isOk: true, msj: documentoActualizado.cajas })
       } catch (error) {
         console.error(error);
         res.json[{isOk:false, msj: error }]
