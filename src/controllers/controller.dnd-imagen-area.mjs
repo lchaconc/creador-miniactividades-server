@@ -5,6 +5,8 @@ import {
 import DndImagenArea from "../models/model.dnd-imagen-area.mjs";
 import { writeJson } from "../utils/staticdata.mjs";
 
+
+
 export async function generarBuild(req, res) {
   const { idApp } = req.params;
   const app = await DndImagenArea.findById(idApp);
@@ -80,7 +82,7 @@ export async function editaAreas(req, res) {
 
 
 
-export function subirImagen (req, res)  {
+export async function subirImagen (req, res)  {
     const {alt, idArea} = req.body;
 
     console.log("alt, idArea", alt, idArea);
@@ -91,7 +93,11 @@ export function subirImagen (req, res)  {
       }
       const imageUrl = req.protocol + '://' + req.get('host') + '/' + req.file.path;
       console.log(req.file.filename);
-      
+
+      const { idApp } = req.params;
+      const app = await DndImagenArea.findById(idApp);      
+      app.cajas.push({ id: req.file.filename, alt, idArea})
+      await app.save();      
 
       res.json({ isOk: true });
     } catch (error) {
@@ -99,4 +105,22 @@ export function subirImagen (req, res)  {
       res.status(400).json({ error: error.message });
     }
   }
+
+
+export async function eliminarCaja (req, res) {    
+    const { idApp, idCaja } = req.params;
+    try {
+        const documentoActualizado = await DndImagenArea.findOneAndUpdate(
+          { _id: idApp },
+          { $pull: { cajas: { id: idCaja } } },
+          { new: true }
+        );
+        console.log(`Objeto actualizado: ${documentoActualizado}`);
+        res.json({isOk: true, msj: documentoActualizado})
+      } catch (error) {
+        console.error(error);
+        res.json[{isOk:false, msj: error }]
+      }
+    
+}
 

@@ -70,7 +70,7 @@ const dndImagenAreaSchema = new Schema({
         type: String,
         required: true,
         trim: true,
-        maxlength: 32
+        maxlength: 512
       },
       alt: {
         type: String,
