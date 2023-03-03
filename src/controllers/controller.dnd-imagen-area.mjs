@@ -29,3 +29,30 @@ export async function generarPreview (req, res) {
     //console.log(stats);
     res.json({isOk:true, url: urlPreview })    
 }
+
+export async function obtenerTextos (req, res) {
+    const dndImagenArea = await DndImagenArea.find({});
+    const textos = dndImagenArea[0].textos
+    res.json({isOk: true, data: textos})   
+}
+
+export async function editarTextos(req, res) {
+    
+    const { titulo, instrucciones, retroCorrecta, retroIncorrecta } = req.body;
+    const {idApp} = req.params;
+
+    console.log(idApp);
+    console.log(titulo, instrucciones, retroCorrecta, retroIncorrecta);
+    
+    const app = await DndImagenArea.findById(idApp);
+    app.textos = {
+        titulo, instrucciones, retroCorrecta, retroIncorrecta
+    }
+    await app.save();
+
+    //console.log(app.textos);
+
+    res.json({isOk:true})
+
+    
+}
