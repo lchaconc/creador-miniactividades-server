@@ -2,9 +2,9 @@ import * as utils from "./utils";
 import eventHandlers from "./handlers";
 import data from "./data.json";
 
-const textos = data[0].textos;
-const areas = data[0].areas;
-const cajas = data[0].cajas;
+const textos = data.textos;
+const areas = data.areas;
+const cajas = data.cajas;
 
 onload = () => setup();
 

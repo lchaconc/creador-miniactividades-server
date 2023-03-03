@@ -1,0 +1,78 @@
+[{
+  "_id": {
+    "$oid": "63fe00cc6489bd78d2bb02b2"
+  },
+  "username": "luis.chacon.campos@mep.go.cr",
+  "textos": {
+    "titulo": "titulo de insomnia",
+    "instrucciones": "Prueba de edición de instrucciones",
+    "retroCorrecta": "Buena!",
+    "retroIncorrecta": "Mala"
+  },
+  "areas": [
+    {
+      "idArea": "abioticos",
+      "titulo": "Factores Abióticos",
+      "backgroundColor": "#FFC300",
+      "color": "white"
+    },
+    {
+      "idArea": "bioticos",
+      "titulo": "Factores Bióticos",
+      "backgroundColor": "#FF5733",
+      "color": "yellow"
+    }
+  ],
+  "cajas": [
+    {
+      "id": "flor",
+      "alt": "Flor amarilla",
+      "idArea": "biotico"
+    },
+    {
+      "id": "desierto",
+      "alt": "Desiert",
+      "idArea": "abiotico"
+    },
+    {
+      "id": "hormiga",
+      "alt": "hormiga",
+      "idArea": "biotico"
+    },
+    {
+      "id": "elefante",
+      "alt": "elefante",
+      "idArea": "biotico"
+    },
+    {
+      "id": "cielo",
+      "alt": "cielo azul con nubes",
+      "idArea": "abiotico"
+    },
+    {
+      "id": "aguila",
+      "alt": "águila",
+      "idArea": "biotico"
+    },
+    {
+      "id": "arbol",
+      "alt": "árbol",
+      "idArea": "biotico"
+    },
+    {
+      "id": "piedras",
+      "alt": "grupo de piedras",
+      "idArea": "abiotico"
+    },
+    {
+      "id": "pez",
+      "alt": "pez marino color amarillo",
+      "idArea": "biotico"
+    },
+    {
+      "id": "lago",
+      "alt": "lago",
+      "idArea": "abiotico"
+    }
+  ]
+}]

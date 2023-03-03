@@ -1,14 +1,21 @@
 import {Router} from "express"
 import * as ctrDndImagenArea from "../controllers/controller.dnd-imagen-area.mjs"
+import upload from "../utils/file-upload.mjs";
 
 
 const routerDndImagenArea = Router()
-routerDndImagenArea.get('/build', ctrDndImagenArea.generarBuild );
-routerDndImagenArea.get('/preview', ctrDndImagenArea.generarPreview );
+routerDndImagenArea.get('/build/:idApp', ctrDndImagenArea.generarBuild );
+routerDndImagenArea.get('/preview/:idApp', ctrDndImagenArea.generarPreview );
 //Textos
-routerDndImagenArea.get('/textos', ctrDndImagenArea.obtenerTextos );
+routerDndImagenArea.get('/textos/:idApp', ctrDndImagenArea.obtenerTextos );
 routerDndImagenArea.put('/textos/:idApp', ctrDndImagenArea.editarTextos );
 
+//areas
+routerDndImagenArea.get('/areas/:idApp', ctrDndImagenArea.obtenerAreas );
+routerDndImagenArea.put('/areas/:idApp', ctrDndImagenArea.editaAreas );
+
+//imagen
+routerDndImagenArea.post('/imagen/:idApp', upload.single('image'), ctrDndImagenArea.subirImagen );
 
 
 
