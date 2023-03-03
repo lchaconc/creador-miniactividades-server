@@ -40,7 +40,7 @@ function handleDrop(e) {
     const idItem = e.dataTransfer.getData("img");
     console.log("Objeto seleccionado: ", idItem);
     e.currentTarget.appendChild(document.getElementById(idItem));
-    const areaSeleccionada = e.currentTarget.id;
+    const areaSeleccionada = e.currentTarget.id;    
     console.log("Area seleccionada >>>", areaSeleccionada); 
     const idArea = obtenerDatos(idItem);
     //console.log(idArea);

@@ -25,7 +25,7 @@ export function renderAreas (areas) {
         const div = document.createElement("div");        
         div.className = `col-sm-6 area-drop`;  
         div.innerHTML= `<h3> ${area.titulo} </h3>`;
-        div.setAttribute("id", area.id ); 
+        div.setAttribute("id", area.idArea ); 
         div.style.backgroundColor = area.backgroundColor;        
         divAreas.append(div);
     });
@@ -41,7 +41,7 @@ export function renderCajas(cajas) {
     
     cajas.forEach(caja => {
         const imagen = document.createElement("img");
-        imagen.src = `./assets/${caja.id}.png`;
+        imagen.src = `./assets/${caja.id}`;
         imagen.alt = caja.alt;
         imagen.setAttribute("id", caja.id);
         imagen.className = "img-fluid box";

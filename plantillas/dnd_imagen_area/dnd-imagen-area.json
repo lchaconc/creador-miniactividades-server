@@ -11,13 +11,13 @@
   },
   "areas": [
     {
-      "idArea": "abioticos",
+      "idArea": "abiotico",
       "titulo": "Factores Abióticos",
       "backgroundColor": "#FFC300",
       "color": "white"
     },
     {
-      "idArea": "bioticos",
+      "idArea": "biotico",
       "titulo": "Factores Bióticos",
       "backgroundColor": "#FF5733",
       "color": "yellow"
@@ -25,52 +25,52 @@
   ],
   "cajas": [
     {
-      "id": "flor",
+      "id": "flor.png",
       "alt": "Flor amarilla",
       "idArea": "biotico"
     },
     {
-      "id": "desierto",
+      "id": "desierto.png",
       "alt": "Desiert",
       "idArea": "abiotico"
     },
     {
-      "id": "hormiga",
+      "id": "hormiga.png",
       "alt": "hormiga",
       "idArea": "biotico"
     },
     {
-      "id": "elefante",
+      "id": "elefante.png",
       "alt": "elefante",
       "idArea": "biotico"
     },
     {
-      "id": "cielo",
+      "id": "cielo.png",
       "alt": "cielo azul con nubes",
       "idArea": "abiotico"
     },
     {
-      "id": "aguila",
+      "id": "aguila.png",
       "alt": "águila",
       "idArea": "biotico"
     },
     {
-      "id": "arbol",
+      "id": "arbol.png",
       "alt": "árbol",
       "idArea": "biotico"
     },
     {
-      "id": "piedras",
+      "id": "piedras.png",
       "alt": "grupo de piedras",
       "idArea": "abiotico"
     },
     {
-      "id": "pez",
+      "id": "pez.png",
       "alt": "pez marino color amarillo",
       "idArea": "biotico"
     },
     {
-      "id": "lago",
+      "id": "lago.png",
       "alt": "lago",
       "idArea": "abiotico"
     }
