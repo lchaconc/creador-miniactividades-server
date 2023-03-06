@@ -2,10 +2,6 @@ import DndImagenArea from "../models/model.dnd-imagen-area.mjs";
 import {copiarCarpeta} from "../utils/utils-fs-extra.mjs";
 
 
-
-
-
-
 export async function crearProyecto(req, res) {
     const {nombrePlantilla} = req.body;
     const {username} = req.params;
@@ -16,6 +12,5 @@ export async function crearProyecto(req, res) {
     console.log("tmp", tmp);
       
     const msj = await copiarCarpeta ( nombrePlantilla, tmp._id );   
-    res.json({isOk: true, idApp: msj });
-    
+    res.json({isOk: true, idApp: msj });    
 }

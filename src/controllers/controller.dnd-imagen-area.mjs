@@ -22,8 +22,8 @@ export async function generarPreview(req, res) {
   const { idApp } = req.params;
   const app = await DndImagenArea.findById(idApp);
   //console.log("app", app);
-  const resEscritura = await writeJson(app, "dnd_imagen_area");
-  console.log(resEscritura);
+  const resEscritura = await writeJson(app, idApp);
+  console.log("resEscritura", resEscritura);
 
   const stats = await buildDev(idApp);
   //console.log(stats);
@@ -112,7 +112,7 @@ export async function eliminarCaja(req, res) {
       { new: true }
     );
 
-    const imagePath = `./plantillas/dnd_imagen_area/public/assets/${idCaja}`;
+    const imagePath = `./proy/${idApp}/public/assets/${idCaja}`;
     fs.unlinkSync(imagePath); // Elimina la imagen del sistema de archivos
 
     console.log(`Objeto actualizado: ${documentoActualizado.cajas}`);

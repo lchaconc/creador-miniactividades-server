@@ -10,7 +10,7 @@ module.exports = (idApp)=> {
 
 
   return {
-    entry: "./plantillas/dnd_imagen_area/src/main.js",
+    entry:  `./proy/${idApp}/src/main.js`,
     output: {                
         path: path.resolve( __dirname,  `../../builds/${idApp}`),
         filename: "bundle.[contenthash].js"
@@ -19,11 +19,11 @@ module.exports = (idApp)=> {
     resolve: {
       extensions: [".js", ".json"]
     },
-    plugins: [new HtmlWebpackPlugin({template: "./plantillas/dnd_imagen_area/public/index.html"}),
+    plugins: [new HtmlWebpackPlugin({template:   `./proy/${idApp}/public/index.html`}),
     new CopyPlugin({
         patterns: [
-          { from: "./plantillas/dnd_imagen_area/public/assets", to: "./assets" },
-          { from: "./plantillas/dnd_imagen_area/public/css", to: "./css" }              
+          { from:  `./proy/${idApp}/public/assets`, to: "./assets" },
+          { from: `./proy/${idApp}/public/css`, to: "./css" }              
         ],
       })   
    ]

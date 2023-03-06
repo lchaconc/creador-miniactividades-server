@@ -11,25 +11,21 @@ const dndImagenAreaSchema = new Schema({
   textos: {
     titulo: {
       type: String,
-
       trim: true,
       maxlength: 128,
     },
     instrucciones: {
       type: String,
-
       trim: true,
       maxlength: 256,
     },
     retroCorrecta: {
       type: String,
-
       trim: true,
       maxlength: 64,
     },
     retroIncorrecta: {
       type: String,
-
       trim: true,
       maxlength: 64,
     },
@@ -38,25 +34,21 @@ const dndImagenAreaSchema = new Schema({
     {
       idArea: {
         type: String,
-
         trim: true,
         maxlength: 32,
       },
       titulo: {
         type: String,
-
         trim: true,
         maxlength: 32,
       },
       backgroundColor: {
         type: String,
-
         trim: true,
         maxlength: 32,
       },
       color: {
         type: String,
-
         trim: true,
         maxlength: 32,
       },
@@ -66,19 +58,16 @@ const dndImagenAreaSchema = new Schema({
     {
       id: {
         type: String,
-
         trim: true,
         maxlength: 512,
       },
       alt: {
         type: String,
-
         trim: true,
         maxlength: 32,
       },
       idArea: {
         type: String,
-
         trim: true,
         maxlength: 32,
       },

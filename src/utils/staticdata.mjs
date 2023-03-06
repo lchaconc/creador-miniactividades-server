@@ -14,7 +14,7 @@ export async function readJson( dir,  name) {
 
 export async function writeJson(data, dir ) {
   const name = "data.json";
-  const jsonDirectory = path.join(process.cwd(), 'plantillas');
+  const jsonDirectory = path.join(process.cwd(), 'proy');
   await fs.writeFile(jsonDirectory + '/' + dir + "/src/" + name, JSON.stringify(data));  
   const res = {isOk: true, msj: "Datos actualizados."};
   return (res);
