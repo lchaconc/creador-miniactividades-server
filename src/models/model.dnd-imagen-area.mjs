@@ -1,91 +1,89 @@
 import { Schema, model } from "mongoose";
 
-const dndImagenAreaSchema = new Schema({  
+const dndImagenAreaSchema = new Schema({
   username: {
     type: String,
     required: true,
     trim: true,
     match: /^[a-zA-Z0-9.@]+$/,
-    maxlength: 128
-
+    maxlength: 128,
   },
   textos: {
-    titulo:  {
+    titulo: {
       type: String,
-      required: true,
+
       trim: true,
-      maxlength: 128
+      maxlength: 128,
     },
-    instrucciones:  {
+    instrucciones: {
       type: String,
-      required: true,
+
       trim: true,
-      maxlength: 256
+      maxlength: 256,
     },
-    retroCorrecta:  {
+    retroCorrecta: {
       type: String,
-      required: true,
+
       trim: true,
-      maxlength: 64
+      maxlength: 64,
     },
-    retroIncorrecta:  {
+    retroIncorrecta: {
       type: String,
-      required: true,
+
       trim: true,
-      maxlength: 64
-    }
+      maxlength: 64,
+    },
   },
   areas: [
     {
-      idArea:  {
+      idArea: {
         type: String,
-        required: true,
+
         trim: true,
-        maxlength: 32
+        maxlength: 32,
       },
-      titulo:  {
+      titulo: {
         type: String,
-        required: true,
+
         trim: true,
-        maxlength: 32
+        maxlength: 32,
       },
-      backgroundColor:  {
+      backgroundColor: {
         type: String,
-        required: true,
+
         trim: true,
-        maxlength: 32
+        maxlength: 32,
       },
-      color:  {
+      color: {
         type: String,
-        required: true,
+
         trim: true,
-        maxlength: 32
-      }
-    }
-   
+        maxlength: 32,
+      },
+    },
   ],
   cajas: [
     {
       id: {
         type: String,
-        required: true,
+
         trim: true,
-        maxlength: 512
+        maxlength: 512,
       },
       alt: {
         type: String,
-        required: true,
+
         trim: true,
-        maxlength: 32
+        maxlength: 32,
       },
       idArea: {
         type: String,
-        required: true,
+
         trim: true,
-        maxlength: 32
-      }
-    }   
+        maxlength: 32,
+      },
+    },
   ],
 });
 
-export default  model("DndImagenArea", dndImagenAreaSchema, "dnd-imagen-area");
+export default model("DndImagenArea", dndImagenAreaSchema, "dnd-imagen-area");

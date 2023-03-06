@@ -1,13 +1,21 @@
+import DndImagenArea from "../models/model.dnd-imagen-area.mjs";
 import {copiarCarpeta} from "../utils/utils-fs-extra.mjs";
 
 
 
-const idApp = "123456789x"
+
 
 
 export async function crearProyecto(req, res) {
     const {nombrePlantilla} = req.body;
-    const msj = await copiarCarpeta ( nombrePlantilla, idApp );   
-    res.json({isOk: true, nsj: msj });
+    const {username} = req.params;
+    
+
+    const nuevoDocumento = new DndImagenArea({  username }); 
+    const tmp = await nuevoDocumento.save ();   
+    console.log("tmp", tmp);
+      
+    const msj = await copiarCarpeta ( nombrePlantilla, tmp._id );   
+    res.json({isOk: true, idApp: msj });
     
 }

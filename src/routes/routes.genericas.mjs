@@ -3,6 +3,6 @@ import * as ctrGenericos from "../controllers/controller.genericos.mjs";
 
 const routerGenericas = Router();
 
-routerGenericas.post("/create", ctrGenericos.crearProyecto);
+routerGenericas.post("/create/:username", ctrGenericos.crearProyecto);
 
 export default routerGenericas;
