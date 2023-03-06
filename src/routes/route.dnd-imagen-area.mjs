@@ -3,7 +3,7 @@ import * as ctrDndImagenArea from "../controllers/controller.dnd-imagen-area.mjs
 import upload from "../utils/file-upload.mjs";
 
 
-const routerDndImagenArea = Router()
+const routerDndImagenArea = Router();
 routerDndImagenArea.get('/build/:idApp', ctrDndImagenArea.generarBuild );
 routerDndImagenArea.get('/preview/:idApp', ctrDndImagenArea.generarPreview );
 //Textos
@@ -18,6 +18,7 @@ routerDndImagenArea.put('/areas/:idApp', ctrDndImagenArea.editaAreas );
 routerDndImagenArea.post('/imagen/:idApp', upload.single('image'), ctrDndImagenArea.subirImagen );
 routerDndImagenArea.delete('/imagen/:idApp/:idCaja', ctrDndImagenArea.eliminarCaja );
 routerDndImagenArea.get("/imagen/:idApp", ctrDndImagenArea.obtenerCajas);
+
 
 
 

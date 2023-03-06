@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import routerDndImagenArea from "./routes/route.dnd-imagen-area.mjs";
+import routerGenericas from "./routes/routes.genericas.mjs";
 import conectDB from "../db.conexion.mjs";
 
 
@@ -22,7 +23,8 @@ app.use("/prevista/", express.static("./builds"));
 
 
 
-app.use("/api/dnd-imagen-area", routerDndImagenArea )
+app.use("/api/dnd-imagen-area", routerDndImagenArea );
+app.use( "/api/", routerGenericas );
 
 
 
