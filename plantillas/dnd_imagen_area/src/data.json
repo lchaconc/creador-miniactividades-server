@@ -1,1 +1,102 @@
-{"textos":{"titulo":"titulo de insomnia","instrucciones":"Prueba de edición de instrucciones","retroCorrecta":"Buena!","retroIncorrecta":"Mala"},"_id":"63fe00cc6489bd78d2bb02b2","username":"luis.chacon.campos@mep.go.cr","areas":[{"_id":"640263e5ab5aa64968bbdf7f","idArea":"abiotico","titulo":"Factores Abióticos","backgroundColor":"#FFC300","color":"white"},{"_id":"640263e5ab5aa64968bbdf80","idArea":"biotico","titulo":"Factores Bióticos","backgroundColor":"#FF5733","color":"yellow"}],"cajas":[{"_id":"640263e5ab5aa64968bbdf81","id":"flor.png","alt":"Flor amarilla","idArea":"biotico"},{"_id":"640263e5ab5aa64968bbdf82","id":"desierto.png","alt":"Desiert","idArea":"abiotico"},{"_id":"640263e5ab5aa64968bbdf83","id":"hormiga.png","alt":"hormiga","idArea":"biotico"},{"_id":"640263e5ab5aa64968bbdf84","id":"elefante.png","alt":"elefante","idArea":"biotico"},{"_id":"640263e5ab5aa64968bbdf85","id":"cielo.png","alt":"cielo azul con nubes","idArea":"abiotico"},{"_id":"640263e5ab5aa64968bbdf86","id":"aguila.png","alt":"águila","idArea":"biotico"},{"_id":"640263e5ab5aa64968bbdf87","id":"arbol.png","alt":"árbol","idArea":"biotico"},{"_id":"640263e5ab5aa64968bbdf88","id":"piedras.png","alt":"grupo de piedras","idArea":"abiotico"},{"_id":"640263e5ab5aa64968bbdf89","id":"pez.png","alt":"pez marino color amarillo","idArea":"biotico"},{"_id":"640263e5ab5aa64968bbdf8a","id":"lago.png","alt":"lago","idArea":"abiotico"}],"__v":1}
+{
+  "textos": {
+    "titulo": "Demostracio´n de actividad",
+    "instrucciones": "Prueba de edición de instrucciones 456",
+    "retroCorrecta": "Buena!",
+    "retroIncorrecta": "Mala"
+  },
+  "_id": "63fe00cc6489bd78d2bb02b2",
+  "username": "luis.chacon.campos@mep.go.cr",
+  "areas": [
+    {
+      "idArea": "abiotico",
+      "titulo": "Factores Abióticos editados 1",
+      "backgroundColor": "#FFC300",
+      "color": "white",
+      "_id": "6406042fe33281a9c0dbceff"
+    },
+    {
+      "idArea": "biotico",
+      "titulo": "Factores Bióticos editados 2",
+      "backgroundColor": "#FF5733",
+      "color": "yellow",
+      "_id": "6406042fe33281a9c0dbcf00"
+    },
+    {
+      "idArea": "acuaticos",
+      "titulo": "Acuaticos 456",
+      "backgroundColor": "red",
+      "color": "green",
+      "_id": "6406175ee112387156c31d16"
+    }
+  ],
+  "cajas": [
+    {
+      "_id": "640617b2e112387156c31d49",
+      "id": "flor.png",
+      "alt": "Flor amarilla",
+      "idArea": "biotico"
+    },
+    {
+      "_id": "640617b2e112387156c31d4a",
+      "id": "desierto.png",
+      "alt": "Desiert",
+      "idArea": "abiotico"
+    },
+    {
+      "_id": "640617b2e112387156c31d4b",
+      "id": "hormiga.png",
+      "alt": "hormiga",
+      "idArea": "biotico"
+    },
+    {
+      "_id": "640617b2e112387156c31d4c",
+      "id": "elefante.png",
+      "alt": "elefante",
+      "idArea": "biotico"
+    },
+    {
+      "_id": "640617b2e112387156c31d4d",
+      "id": "cielo.png",
+      "alt": "cielo azul con nubes",
+      "idArea": "abiotico"
+    },
+    {
+      "_id": "640617b2e112387156c31d4e",
+      "id": "aguila.png",
+      "alt": "águila",
+      "idArea": "biotico"
+    },
+    {
+      "_id": "640617b2e112387156c31d4f",
+      "id": "arbol.png",
+      "alt": "árbol",
+      "idArea": "biotico"
+    },
+    {
+      "_id": "640617b2e112387156c31d50",
+      "id": "piedras.png",
+      "alt": "grupo de piedras",
+      "idArea": "abiotico"
+    },
+    {
+      "_id": "640617b2e112387156c31d51",
+      "id": "pez.png",
+      "alt": "pez marino color amarillo",
+      "idArea": "biotico"
+    },
+    {
+      "_id": "640617b2e112387156c31d52",
+      "id": "lago.png",
+      "alt": "lago",
+      "idArea": "abiotico"
+    },
+    {
+      "id": "1678120848689-owl-icon.png",
+      "alt": "imagen de buho",
+      "idArea": "biotico",
+      "_id": "64061790e112387156c31d34"
+    }
+  ],
+  "__v": 4
+}

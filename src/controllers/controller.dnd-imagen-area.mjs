@@ -6,8 +6,6 @@ import DndImagenArea from "../models/model.dnd-imagen-area.mjs";
 import { writeJson } from "../utils/staticdata.mjs";
 import fs from "fs";
 
-
-
 export async function generarBuild(req, res) {
   const { idApp } = req.params;
   const app = await DndImagenArea.findById(idApp);
@@ -69,63 +67,64 @@ export async function obtenerAreas(req, res) {
   res.json({ isOk: true, data: app.areas });
 }
 
-export async function editaAreas(req, res) {    
+export async function editaAreas(req, res) {
   const { idApp } = req.params;
   const app = await DndImagenArea.findById(idApp);
-  
+
   //console.log(req.body);
-  app.areas = req.body;  
+  app.areas = req.body;
   await app.save();
-  
+
   res.json({ isOk: true, msj: "areas editadas" });
-
 }
 
+export async function subirImagen(req, res) {
+  const { alt, idArea } = req.body;
 
+  console.log("alt, idArea", alt, idArea);
 
-export async function subirImagen (req, res)  {
-    const {alt, idArea} = req.body;
-
-    console.log("alt, idArea", alt, idArea);
-
-    try {
-      if (!req.file) {
-        throw new Error('Debe proporcionar un archivo de imagen');
-      }
-      const imageUrl = req.protocol + '://' + req.get('host') + '/' + req.file.path;
-      console.log(req.file.filename);
-
-      const { idApp } = req.params;
-      const app = await DndImagenArea.findById(idApp);      
-      app.cajas.push({ id: req.file.filename, alt, idArea})
-      await app.save();      
-
-      res.json({ isOk: true });
-    } catch (error) {
-      console.error(error);
-      res.status(400).json({ error: error.message });
+  try {
+    if (!req.file) {
+      throw new Error("Debe proporcionar un archivo de imagen");
     }
+    const imageUrl =
+      req.protocol + "://" + req.get("host") + "/" + req.file.path;
+    console.log(req.file.filename);
+
+    const { idApp } = req.params;
+    const app = await DndImagenArea.findById(idApp);
+    app.cajas.push({ id: req.file.filename, alt, idArea });
+    await app.save();
+
+    res.json({ isOk: true });
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({ error: error.message });
   }
-
-
-export async function eliminarCaja (req, res) {    
-    const { idApp, idCaja } = req.params;
-    try {
-        const documentoActualizado = await DndImagenArea.findOneAndUpdate(
-          { _id: idApp },
-          { $pull: { cajas: { id: idCaja } } },
-          { new: true }
-        );
-
-        const imagePath = `./plantillas/dnd_imagen_area/public/assets/${idCaja}`;
-        fs.unlinkSync(imagePath); // Elimina la imagen del sistema de archivos
-
-        console.log(`Objeto actualizado: ${documentoActualizado.cajas}`);
-        res.json({isOk: true, msj: documentoActualizado.cajas })
-      } catch (error) {
-        console.error(error);
-        res.json[{isOk:false, msj: error }]
-      }
-    
 }
 
+export async function eliminarCaja(req, res) {
+  const { idApp, idCaja } = req.params;
+  try {
+    const documentoActualizado = await DndImagenArea.findOneAndUpdate(
+      { _id: idApp },
+      { $pull: { cajas: { id: idCaja } } },
+      { new: true }
+    );
+
+    const imagePath = `./plantillas/dnd_imagen_area/public/assets/${idCaja}`;
+    fs.unlinkSync(imagePath); // Elimina la imagen del sistema de archivos
+
+    console.log(`Objeto actualizado: ${documentoActualizado.cajas}`);
+    res.json({ isOk: true, msj: documentoActualizado.cajas });
+  } catch (error) {
+    console.error(error);
+    res.json[{ isOk: false, msj: error }];
+  }
+}
+
+export async function obtenerCajas(req, res) {
+  const { idApp } = req.params;
+  const app = await DndImagenArea.findById(idApp);
+  res.json({ isOk: true, data: app.cajas });
+}
