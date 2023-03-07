@@ -4,7 +4,9 @@ import  multer from 'multer';
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     //console.log(file);
-    cb(null, './plantillas/dnd_imagen_area/public/assets');
+    const {idApp} = req.params;
+    //console.log("paramas", req.params );    
+    cb(null, `./proy/${idApp}/public/assets`);
   },
   filename: (req, file, cb) => {
     const filename = file.originalname.toLowerCase().split(' ').join('-');
