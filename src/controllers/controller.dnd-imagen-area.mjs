@@ -38,7 +38,7 @@ export async function obtenerTextos(req, res) {
   res.json({ isOk: true, data: app.textos });
 }
 
-export async function editarTextos(req, res) {
+export async function insertarTextos(req, res) {
   const { titulo, instrucciones, retroCorrecta, retroIncorrecta } = req.body;
   const { idApp } = req.params;
 

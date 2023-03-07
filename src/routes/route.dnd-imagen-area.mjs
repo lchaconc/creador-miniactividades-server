@@ -8,7 +8,7 @@ routerDndImagenArea.get('/build/:idApp', ctrDndImagenArea.generarBuild );
 routerDndImagenArea.get('/preview/:idApp', ctrDndImagenArea.generarPreview );
 //Textos
 routerDndImagenArea.get('/textos/:idApp', ctrDndImagenArea.obtenerTextos );
-routerDndImagenArea.put('/textos/:idApp', ctrDndImagenArea.editarTextos );
+routerDndImagenArea.post('/textos/:idApp', ctrDndImagenArea.insertarTextos );
 
 //areas
 routerDndImagenArea.get('/areas/:idApp', ctrDndImagenArea.obtenerAreas );
