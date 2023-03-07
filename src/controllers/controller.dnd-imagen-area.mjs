@@ -10,7 +10,7 @@ export async function generarBuild(req, res) {
   const { idApp } = req.params;
   const app = await DndImagenArea.findById(idApp);
   //console.log("dndImagenArea", dndImagenArea);
-  const resEscritura = await writeJson(app, "dnd_imagen_area");
+  const resEscritura = await writeJson(app, idApp);
   console.log(resEscritura);
   const stats = await buildProd(idApp);
   //console.log(stats);

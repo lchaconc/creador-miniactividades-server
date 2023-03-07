@@ -12,7 +12,7 @@ routerDndImagenArea.post('/textos/:idApp', ctrDndImagenArea.insertarTextos );
 
 //areas
 routerDndImagenArea.get('/areas/:idApp', ctrDndImagenArea.obtenerAreas );
-routerDndImagenArea.put('/areas/:idApp', ctrDndImagenArea.editaAreas );
+routerDndImagenArea.post('/areas/:idApp', ctrDndImagenArea.editaAreas );
 
 //imagen
 routerDndImagenArea.post('/imagen/:idApp', upload.single('image'), ctrDndImagenArea.subirImagen );
