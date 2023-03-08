@@ -68,11 +68,11 @@ export async function obtenerAreas(req, res) {
   res.json({ isOk: true, data: app.areas });
 }
 
-export async function editaAreas(req, res) {
+export async function insertarArea(req, res) {
   const { idApp } = req.params;  
-    
+
   const nuevaArea = {
-    idArea: normalizar(req.body.titulo),
+    //idArea: normalizar(req.body.titulo),
     titulo: req.body.titulo,
     backgroundColor: req.body.backgroundColor,
     color: req.body.color,
@@ -91,6 +91,28 @@ export async function editaAreas(req, res) {
 
 
 }
+
+
+export async function eliminarArea(req, res) {
+  const { idApp } = req.params;
+  //id de area a aleiminar enviada por el cliente:
+  const {id} = req.body;
+
+  try {
+    const dndImagenArea = await DndImagenArea.findOneAndUpdate(
+      { _id: idApp },
+      { $pull: { areas: { _id: id } } },
+      { new: true }
+    );
+    
+    res.json( {  isOk: true, areas: dndImagenArea.areas }  );
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({isOk: false,   msj: "Error en el servidor" });
+  }
+}
+
+
 
 export async function subirImagen(req, res) {
   const { alt, idArea } = req.body;

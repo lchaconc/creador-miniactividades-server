@@ -31,12 +31,7 @@ const dndImagenAreaSchema = new Schema({
     },
   },
   areas: [
-    {
-      idArea: {
-        type: String,
-        trim: true,
-        maxlength: 32,
-      },
+    {      
       titulo: {
         type: String,
         trim: true,
