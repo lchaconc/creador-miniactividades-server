@@ -10,14 +10,12 @@
     "retroIncorrecta": "Mala"
   },
   "areas": [
-    {
-      "idArea": "abiotico",
+    {      
       "titulo": "Factores Abióticos",
       "backgroundColor": "#FFC300",
       "color": "white"
     },
-    {
-      "idArea": "biotico",
+    {      
       "titulo": "Factores Bióticos",
       "backgroundColor": "#FF5733",
       "color": "yellow"
