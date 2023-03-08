@@ -131,8 +131,8 @@ export async function subirImagen(req, res) {
     const app = await DndImagenArea.findById(idApp);
     app.cajas.push({ id: req.file.filename, alt, idArea });
     await app.save();
-
-    res.json({ isOk: true });
+    
+    res.json({ isOk: true, imagenes: app.cajas });
   } catch (error) {
     console.error(error);
     res.status(400).json({ error: error.message });

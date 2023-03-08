@@ -23,6 +23,9 @@ app.use("/descarga/", express.static("./zips"));
 //dev:
 app.use("/prevista/", express.static("./builds"));
 
+//proyectos
+app.use("/proy/", express.static("./proy"));
+
 
 
 app.use("/api/dnd-imagen-area", routerDndImagenArea );
