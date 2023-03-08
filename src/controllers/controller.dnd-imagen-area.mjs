@@ -4,6 +4,7 @@ import {
 } from "../../plantillas/dnd_imagen_area/builder.js";
 import DndImagenArea from "../models/model.dnd-imagen-area.mjs";
 import { writeJson } from "../utils/staticdata.mjs";
+import normalizar from "../utils/utils-normalize.mjs";
 import fs from "fs";
 
 export async function generarBuild(req, res) {
@@ -68,14 +69,27 @@ export async function obtenerAreas(req, res) {
 }
 
 export async function editaAreas(req, res) {
-  const { idApp } = req.params;
-  const app = await DndImagenArea.findById(idApp);
+  const { idApp } = req.params;  
+    
+  const nuevaArea = {
+    idArea: normalizar(req.body.titulo),
+    titulo: req.body.titulo,
+    backgroundColor: req.body.backgroundColor,
+    color: req.body.color,
+  }
 
-  //console.log(req.body);
-  app.areas = req.body;
-  await app.save();
+  const dndImagenArea = await DndImagenArea.findOneAndUpdate(
+    { idApp: idApp },
+    { $push: { areas: nuevaArea } },
+    { new: true }
+  );
+  
+  res.status(201).json({
+    isOk: true,
+    areas: dndImagenArea.areas
+  });
 
-  res.json({ isOk: true, msj: "areas editadas" });
+
 }
 
 export async function subirImagen(req, res) {
