@@ -25,7 +25,7 @@ export function renderAreas (areas) {
         const div = document.createElement("div");        
         div.className = `col-sm-6 area-drop`;  
         div.innerHTML= `<h3> ${area.titulo} </h3>`;
-        div.setAttribute("id", area.idArea ); 
+        div.setAttribute("id", area._id ); 
         div.style.backgroundColor = area.backgroundColor;        
         divAreas.append(div);
     });

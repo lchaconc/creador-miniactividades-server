@@ -43,7 +43,7 @@ function handleDrop(e) {
     const areaSeleccionada = e.currentTarget.id;    
     console.log("Area seleccionada >>>", areaSeleccionada); 
     const idArea = obtenerDatos(idItem);
-    //console.log(idArea);
+    console.log(idArea);
     ingresarElemento(idItem, idArea, areaSeleccionada )
 
     
@@ -101,7 +101,7 @@ function ingresarElemento (idItem, idArea, areaSeleccionada ) {
 
 function handleConmutador (e) {
     /*
-    manjedaor de ventos que verifica qué estado de botón es: REVISAR o REINICIAR
+    manjedaor de eventos que verifica qué estado de botón es: REVISAR o REINICIAR
     Esta verificación la hace mediante la propiedad "title" del botón
     depende de la verificación carga el método revisar o reiniciar
     */ 
