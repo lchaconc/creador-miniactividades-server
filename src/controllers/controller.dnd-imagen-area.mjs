@@ -116,8 +116,9 @@ export async function eliminarArea(req, res) {
 
 export async function subirImagen(req, res) {
   const { alt, idArea } = req.body;
+  let tituloArea;
 
-  console.log("alt, idArea", alt, idArea);
+  //console.log("alt, idArea", alt, idArea);
 
   try {
     if (!req.file) {
@@ -129,8 +130,19 @@ export async function subirImagen(req, res) {
 
     const { idApp } = req.params;
     const app = await DndImagenArea.findById(idApp);
-    app.cajas.push({ id: req.file.filename, alt, idArea });
+
+    //busca el nombre del area:
+    
+    app.areas.forEach(area => {
+      if (area._id  == idArea ) {
+        tituloArea = area.titulo
+      }
+    });
+
+    app.cajas.push({ id: req.file.filename, alt, idArea, tituloArea });    
     await app.save();
+        
+    
     
     res.json({ isOk: true, imagenes: app.cajas });
   } catch (error) {

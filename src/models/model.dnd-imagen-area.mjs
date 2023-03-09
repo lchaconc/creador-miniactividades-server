@@ -66,6 +66,11 @@ const dndImagenAreaSchema = new Schema({
         trim: true,
         maxlength: 32,
       },
+      tituloArea: {
+        type: String,
+        trim: true,
+        maxlength: 32,
+      },
     },
   ],
 });
