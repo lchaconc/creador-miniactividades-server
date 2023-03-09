@@ -5,4 +5,7 @@ const routerGenericas = Router();
 
 routerGenericas.post("/create/:username", ctrGenericos.crearProyecto);
 
+routerGenericas.get("/proyects/:username", ctrGenericos.obtenerProyectos);
+
+
 export default routerGenericas;

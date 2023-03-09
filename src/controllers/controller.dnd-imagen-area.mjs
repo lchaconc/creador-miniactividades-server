@@ -79,7 +79,7 @@ export async function insertarArea(req, res) {
   }
 
   const dndImagenArea = await DndImagenArea.findOneAndUpdate(
-    { idApp: idApp },
+    { _id: idApp },
     { $push: { areas: nuevaArea } },
     { new: true }
   );
