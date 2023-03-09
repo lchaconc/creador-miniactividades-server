@@ -41,7 +41,7 @@ export function renderCajas(cajas) {
     
     cajas.forEach(caja => {
         const imagen = document.createElement("img");
-        imagen.src = `./assets/${caja.id}`;
+        imagen.src = `./${caja.id}`;
         imagen.alt = caja.alt;
         imagen.setAttribute("id", caja.id);
         imagen.className = "img-fluid box";
