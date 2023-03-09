@@ -17,7 +17,7 @@ routerDndImagenArea.delete('/areas/:idApp', ctrDndImagenArea.eliminarArea );
 
 //imagen
 routerDndImagenArea.post('/imagen/:idApp', upload.single('image'), ctrDndImagenArea.subirImagen );
-routerDndImagenArea.delete('/imagen/:idApp/:idCaja', ctrDndImagenArea.eliminarCaja );
+routerDndImagenArea.delete('/imagen/:idApp', ctrDndImagenArea.eliminarCaja );
 routerDndImagenArea.get("/imagen/:idApp", ctrDndImagenArea.obtenerCajas);
 
 

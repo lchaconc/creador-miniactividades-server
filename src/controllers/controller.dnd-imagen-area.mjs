@@ -152,7 +152,8 @@ export async function subirImagen(req, res) {
 }
 
 export async function eliminarCaja(req, res) {
-  const { idApp, idCaja } = req.params;
+  const { idApp } = req.params;
+  const {idCaja} =  req.body;
   try {
     const documentoActualizado = await DndImagenArea.findOneAndUpdate(
       { _id: idApp },
@@ -164,7 +165,7 @@ export async function eliminarCaja(req, res) {
     fs.unlinkSync(imagePath); // Elimina la imagen del sistema de archivos
 
     console.log(`Objeto actualizado: ${documentoActualizado.cajas}`);
-    res.json({ isOk: true, msj: documentoActualizado.cajas });
+    res.json({ isOk: true, imagenes: documentoActualizado.cajas });
   } catch (error) {
     console.error(error);
     res.json[{ isOk: false, msj: error }];
