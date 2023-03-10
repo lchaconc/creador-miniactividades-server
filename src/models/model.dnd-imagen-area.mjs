@@ -8,6 +8,10 @@ const dndImagenAreaSchema = new Schema({
     match: /^[a-zA-Z0-9.@]+$/,
     maxlength: 128,
   },
+  tipo: {
+    type: String,
+    default: "dnd_imagen_area"
+  },
   textos: {
     titulo: {
       type: String,

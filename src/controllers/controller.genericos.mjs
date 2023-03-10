@@ -18,8 +18,11 @@ export async function crearProyecto(req, res) {
 export async function obtenerProyectos (req, res) {
     const {username} = req.params;
     try {
-        const apps = await DndImagenArea.find({ username: username });
-        res.json(apps);
+        const dndImagenArea = await DndImagenArea.find({ username: username });
+        res.json({
+          isOk: true,
+          dndImagenArea
+        });
       } catch (error) {
         console.log(error);
         throw new Error("Error al obtener los documentos por username");
