@@ -4,12 +4,12 @@ import {
 } from "../../plantillas/dnd_imagen_area/builder.js";
 import DndImagenArea from "../models/model.dnd-imagen-area.mjs";
 import { writeJson } from "../utils/staticdata.mjs";
-import normalizar from "../utils/utils-normalize.mjs";
+//import normalizar from "../utils/utils-normalize.mjs";
 import fs from "fs";
 
 export async function generarBuild(req, res) {
   const { idApp } = req.params;
-  const app = await DndImagenArea.findById(idApp);
+  const app = await DndImagenArea.findById(idApp);  
   //console.log("dndImagenArea", dndImagenArea);
   const resEscritura = await writeJson(app, idApp);
   console.log(resEscritura);
