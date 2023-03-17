@@ -12,6 +12,10 @@ const dndImagenAreaSchema = new Schema({
     type: String,
     default: "dnd_imagen_area"
   },
+  fechaCreacion: {
+    type: Date,
+    default: Date.now
+  },
   textos: {
     titulo: {
       type: String,
