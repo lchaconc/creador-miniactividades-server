@@ -49,6 +49,11 @@ const dndTextoImagenSchema = new Schema({
         type: String,
         trim: true,
         maxlength: 32,
+      },
+      tituloArea: {
+        type: String,
+        trim: true,
+        maxlength: 32
       }
   
     }
@@ -60,10 +65,15 @@ const dndTextoImagenSchema = new Schema({
         trim: true,
         maxlength: 32,
       },
-      archivo: {
+      urlArchivo: {
         type: String,
         trim: true,
         maxlength: 32,
+      },
+      titulo: {
+        type: String,
+        trim: true,
+        maxlength: 32
       }
     }
   ]

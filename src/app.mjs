@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import routerGenericas from "./routes/routes.genericas.mjs";
-import routerDndImagenArea from "./routes/route.dnd-imagen-area.mjs";
+import routerDndImagenArea from "./routes/routes.dnd-imagen-area.mjs";
 import routerDndTxtImg from "./routes/routes.dnd-txt-img.mjs";
 
 import conectDB from "../db.conexion.mjs";

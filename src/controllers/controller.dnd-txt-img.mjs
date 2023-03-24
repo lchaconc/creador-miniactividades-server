@@ -41,3 +41,41 @@ const nuevaCaja = {texto, idArea}
     cajasTexto: dndTxtImg.cajasTexto
   });
 }
+
+
+export async function insertarCajaImagen(req, res) {
+  const { alt,  } = req.body;
+  let tituloArea;
+
+  //console.log("alt, idArea", alt, idArea);
+
+  try {
+    if (!req.file) {
+      throw new Error("Debe proporcionar un archivo de imagen");
+    }
+    const imageUrl =
+      req.protocol + "://" + req.get("host") + "/" + req.file.path;
+    console.log(req.file.filename);
+
+    const { idApp } = req.params;
+    const app = await DndImagenArea.findById(idApp);
+
+    //busca el nombre del area:
+    
+    app.areas.forEach(area => {
+      if (area._id  == idArea ) {
+        tituloArea = area.titulo
+      }
+    });
+
+    app.cajas.push({ id: req.file.filename, alt, idArea, tituloArea });    
+    await app.save();
+        
+    
+    
+    res.json({ isOk: true, imagenes: app.cajas });
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({ error: error.message });
+  }
+}
