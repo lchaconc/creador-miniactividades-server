@@ -68,3 +68,5 @@ const dndTextoImagenSchema = new Schema({
     }
   ]
 });
+
+export default model("DndTxtImg", dndTextoImagenSchema, "dnd-txt-img");

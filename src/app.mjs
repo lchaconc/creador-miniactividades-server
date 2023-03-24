@@ -1,8 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import routerDndImagenArea from "./routes/route.dnd-imagen-area.mjs";
 import routerGenericas from "./routes/routes.genericas.mjs";
+import routerDndImagenArea from "./routes/route.dnd-imagen-area.mjs";
+import routerDndTxtImg from "./routes/routes.dnd-txt-img.mjs";
+
 import conectDB from "../db.conexion.mjs";
 
 
@@ -26,13 +28,11 @@ app.use("/prevista/", express.static("./builds"));
 //proyectos
 app.use("/proy/", express.static("./proy"));
 
-
-
-app.use("/api/dnd-imagen-area", routerDndImagenArea );
+//CRUD
 app.use( "/api/", routerGenericas );
+app.use("/api/dnd-imagen-area", routerDndImagenArea );
+app.use("/api/dnd-txt-img", routerDndTxtImg);
 
 
-
-//app.use("/api/dnd-imagen-area", routesDndImagenArea);
 
 export default app;
