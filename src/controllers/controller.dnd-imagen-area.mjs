@@ -1,36 +1,7 @@
-import {
-  buildDev,
-  buildProd,
-} from "../../plantillas/dnd_imagen_area/builder.js";
 import DndImagenArea from "../models/model.dnd-imagen-area.mjs";
-import { writeJson } from "../utils/staticdata.mjs";
 //import normalizar from "../utils/utils-normalize.mjs";
 import fs from "fs";
 
-export async function generarBuild(req, res) {
-  const { idApp } = req.params;
-  const app = await DndImagenArea.findById(idApp);  
-  //console.log("dndImagenArea", dndImagenArea);
-  const resEscritura = await writeJson(app, idApp);
-  console.log(resEscritura);
-  const stats = await buildProd(idApp);
-  //console.log(stats);
-  const urlZip = "http://localhost:3500/descarga/" + idApp + ".zip";
-  res.json({ isOk: true, url: urlZip });
-}
-
-export async function generarPreview(req, res) {
-  const { idApp } = req.params;
-  const app = await DndImagenArea.findById(idApp);
-  //console.log("app", app);
-  const resEscritura = await writeJson(app, idApp);
-  console.log("resEscritura", resEscritura);
-
-  const stats = await buildDev(idApp);
-  //console.log(stats);
-  const urlPreview = "http://localhost:3500/prevista/" + idApp;
-  res.json({ isOk: true, url: urlPreview });
-}
 
 // **********TEXTOS *********************************//
 export async function obtenerTextos(req, res) {

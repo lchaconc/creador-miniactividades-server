@@ -4,8 +4,7 @@ import upload from "../utils/file-upload.mjs";
 
 
 const routerDndImagenArea = Router();
-routerDndImagenArea.get('/build/:idApp', ctrDndImagenArea.generarBuild );
-routerDndImagenArea.get('/preview/:idApp', ctrDndImagenArea.generarPreview );
+
 //Textos
 routerDndImagenArea.get('/textos/:idApp', ctrDndImagenArea.obtenerTextos );
 routerDndImagenArea.post('/textos/:idApp', ctrDndImagenArea.insertarTextos );

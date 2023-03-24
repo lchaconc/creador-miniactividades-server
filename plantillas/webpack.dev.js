@@ -10,9 +10,9 @@ module.exports = (idApp)=> {
 
 
   return {
-    entry:  `./proy/${idApp}/public/scripts/main.js`,
+    entry:  `./proy/${idApp}/main.js`,
     output: {                
-        path: path.resolve( __dirname,  `../../builds/${idApp}`),
+        path: path.resolve( __dirname,  `../builds/${idApp}`),
         filename: "bundle.[contenthash].js"
     },
     mode: "development",
@@ -22,8 +22,7 @@ module.exports = (idApp)=> {
     plugins: [new HtmlWebpackPlugin({template:   `./proy/${idApp}/public/index.html`}),
     new CopyPlugin({
         patterns: [
-          { from:  `./proy/${idApp}/public/assets`, to: "./" },
-          { from: `./proy/${idApp}/public/css`, to: "./" }              
+          { from:  `./proy/${idApp}/public/assets`, to: "./" }          
         ],
       })   
    ]
