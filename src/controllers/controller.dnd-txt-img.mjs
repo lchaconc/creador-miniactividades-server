@@ -21,61 +21,25 @@ export async function insertarTextos(req, res) {
   res.json({ isOk: true });
 }
 
-export async function insertarCajasTextos(req, res) {
+export async function insertarCajaArea(req, res) {
   const { idApp } = req.params;
-  const { texto, idArea } = req.body;
+  const { texto, alt} = req.body;  
+  const nombreArchivo = req.file.filename;
+console.log(req.file.filename);
 
 
-const nuevaCaja = {texto, idArea}
-
+const nuevaCaja = {texto, alt, nombreArchivo};
+console.log("Documento a insertar", nuevaCaja);
 
   const dndTxtImg = await DndTxtImg.findOneAndUpdate(
     { _id: idApp },
-    { $push: { cajasTexto: nuevaCaja } },
+    { $push: { cajasAreas: nuevaCaja } },
     { new: true }
   );
 
-
   res.status(201).json({
     isOk: true,
-    cajasTexto: dndTxtImg.cajasTexto
+    cajasAreas: dndTxtImg.cajasAreas
   });
 }
 
-
-export async function insertarCajaImagen(req, res) {
-  const { alt,  } = req.body;
-  let tituloArea;
-
-  //console.log("alt, idArea", alt, idArea);
-
-  try {
-    if (!req.file) {
-      throw new Error("Debe proporcionar un archivo de imagen");
-    }
-    const imageUrl =
-      req.protocol + "://" + req.get("host") + "/" + req.file.path;
-    console.log(req.file.filename);
-
-    const { idApp } = req.params;
-    const app = await DndImagenArea.findById(idApp);
-
-    //busca el nombre del area:
-    
-    app.areas.forEach(area => {
-      if (area._id  == idArea ) {
-        tituloArea = area.titulo
-      }
-    });
-
-    app.cajas.push({ id: req.file.filename, alt, idArea, tituloArea });    
-    await app.save();
-        
-    
-    
-    res.json({ isOk: true, imagenes: app.cajas });
-  } catch (error) {
-    console.error(error);
-    res.status(400).json({ error: error.message });
-  }
-}

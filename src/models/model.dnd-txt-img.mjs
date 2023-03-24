@@ -38,39 +38,19 @@ const dndTextoImagenSchema = new Schema({
       maxlength: 64,
     }   
   },
-  cajasTexto: [
-    {  
-      texto: {
-        type: String,
-        trim: true,
-        maxlength: 512,
-      },
-      idArea: {
-        type: String,
-        trim: true,
-        maxlength: 32,
-      },
-      tituloArea: {
-        type: String,
-        trim: true,
-        maxlength: 32
-      }
-  
-    }
-  ],
-  areasImagen: [
+  cajasAreas: [
     {
       alt: {
         type: String,
         trim: true,
         maxlength: 32,
       },
-      urlArchivo: {
+      nombreArchivo: {
         type: String,
         trim: true,
         maxlength: 32,
       },
-      titulo: {
+      texto: {
         type: String,
         trim: true,
         maxlength: 32
