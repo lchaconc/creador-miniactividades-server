@@ -23,7 +23,7 @@ app.use(express.static("./public"));
 app.use("/descarga/", express.static("./zips"));
 
 //dev:
-app.use("/prevista/", express.static("./builds"));
+app.use("/prevista/", express.static("./dev"));
 
 //proyectos
 app.use("/proy/", express.static("./proy"));

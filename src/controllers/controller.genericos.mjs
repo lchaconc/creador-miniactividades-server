@@ -1,7 +1,7 @@
 import {
   buildDev,
   buildProd,
-} from "../../plantillas/builder.js";
+} from "../../builder/builder.js";
 import DndImagenArea from "../models/model.dnd-imagen-area.mjs";
 import DndTxtImg from "../models/model.dnd-txt-img.mjs";
 import {copiarCarpeta} from "../utils/utils-fs-extra.mjs";
