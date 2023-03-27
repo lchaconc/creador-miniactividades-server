@@ -21,6 +21,12 @@ export async function insertarTextos(req, res) {
   res.json({ isOk: true });
 }
 
+export async function obtenerTextos (req, res) {
+  const {idApp} = req.params;
+  const app = await DndTxtImg.findById(idApp);
+  res.json({ isOk: true, data: app.textos });  
+}
+
 export async function insertarCajaArea(req, res) {
   const { idApp } = req.params;
   const { texto, alt} = req.body;  
@@ -59,6 +65,12 @@ export async function eliminarCaja(req, res) {
     res.status(500).json({isOk: false,   msj: "Error en el servidor" });
   }
   
+}
+
+export async function obtenerCajas (req, res) {
+  const {idApp} = req.params;
+  const app = await DndTxtImg.findById(idApp);
+  res.json({ isOk: true, data: app.cajasAreas });  
 }
 
 
