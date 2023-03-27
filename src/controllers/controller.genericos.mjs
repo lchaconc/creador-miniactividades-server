@@ -39,8 +39,6 @@ export async function obtenerProyectos (req, res) {
     
 }
 
-
-
 export async function generarPreview(req, res) {
   const { idApp, tipo } = req.params;
   let app;  
@@ -57,7 +55,6 @@ export async function generarPreview(req, res) {
   const urlPreview = "http://localhost:3500/prevista/" + idApp;
   res.json({ isOk: true, url: urlPreview });
 }
-
 
 export async function generarBuild(req, res) {
   const { idApp, tipo } = req.params;

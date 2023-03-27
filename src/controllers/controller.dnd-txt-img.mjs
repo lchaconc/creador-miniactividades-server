@@ -4,7 +4,7 @@ export async function insertarTextos(req, res) {
   const { titulo, instrucciones, retroCorrecta, retroIncorrecta } = req.body;
   const { idApp } = req.params;
 
-  console.log(idApp);
+  console.log("idApp", idApp);
   console.log(titulo, instrucciones, retroCorrecta, retroIncorrecta);
 
   const app = await DndTxtImg.findById(idApp);
@@ -42,4 +42,23 @@ console.log("Documento a insertar", nuevaCaja);
     cajasAreas: dndTxtImg.cajasAreas
   });
 }
+
+export async function eliminarCaja(req, res) {
+  const { idApp, _id } = req.params;
+
+  try {
+    const dndTxtImg = await DndTxtImg.findOneAndUpdate(
+      { _id: idApp },
+      { $pull: { cajasAreas: { _id } } },
+      { new: true }
+    );
+    
+    res.json( {  isOk: true, cajasAreas: dndTxtImg.cajasAreas }  );
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({isOk: false,   msj: "Error en el servidor" });
+  }
+  
+}
+
 

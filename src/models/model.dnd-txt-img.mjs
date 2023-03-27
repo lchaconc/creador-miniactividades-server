@@ -43,17 +43,17 @@ const dndTextoImagenSchema = new Schema({
       alt: {
         type: String,
         trim: true,
-        maxlength: 32,
+        maxlength: 64,
       },
       nombreArchivo: {
         type: String,
         trim: true,
-        maxlength: 32,
+        maxlength: 256,
       },
       texto: {
         type: String,
         trim: true,
-        maxlength: 32
+        maxlength: 64
       }
     }
   ]

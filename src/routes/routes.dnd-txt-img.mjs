@@ -6,6 +6,7 @@ import upload from "../utils/file-upload.mjs";
 const routerDndTxtImg = Router();
 routerDndTxtImg.post('/textos/:idApp', ctrDndTxtImg.insertarTextos);
 routerDndTxtImg.post('/cajas-areas/:idApp', upload.single('image'), ctrDndTxtImg.insertarCajaArea);
+routerDndTxtImg.delete('/cajas-areas/:idApp/:_id', ctrDndTxtImg.eliminarCaja );
 
 
 
