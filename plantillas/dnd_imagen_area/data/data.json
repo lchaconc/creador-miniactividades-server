@@ -1,0 +1,57 @@
+{
+  "_id": {
+    "$oid": "640b546aaa5fb1175e76d8b0"
+  },
+  "username": "luis.chacon.campos@mep.go.cr",
+  "areas": [
+    {
+      "titulo": "Biótico",
+      "backgroundColor": "#FF5733",
+      "color": "#d282e8",
+      "_id": "640b550eaa5fb1175e76d8b4"
+    },
+    {
+      "titulo": "Abiótico",
+      "backgroundColor": "#900C3F",
+      "color": "#f35d2b",
+      "_id": "640b5524aa5fb1175e76d8b7"
+    }
+  ],
+  "cajas": [
+    {
+      "id": "elefante.png",
+      "alt": "elefante",
+      "idArea": "640b550eaa5fb1175e76d8b4",
+      "tituloArea": "Biótico",
+      "_id": {
+        "$oid": "640b5537aa5fb1175e76d8be"
+      }
+    },
+    {
+      "id": "desierto.png",
+      "alt": "desierto",
+      "idArea": "640b5524aa5fb1175e76d8b7",
+      "tituloArea": "Abiótico",
+      "_id": {
+        "$oid": "640b5553aa5fb1175e76d8c4"
+      }      
+    },
+    {
+      "id": "cielo.png",
+      "alt": "cielo con nubes",
+      "idArea": "640b5524aa5fb1175e76d8b7",
+      "tituloArea": "Abiótico",
+      "_id": {
+        "$oid": "640b5553aa5fb1175e76d812"
+      }      
+    }
+  ],
+  "__v": 2,
+  "textos": {
+    "titulo": "Aprendamos del ecosistema",
+    "instrucciones": "Arrastra la imagen en el área respectiva",
+    "retroCorrecta": "Muy bien!",
+    "retroIncorrecta": "Inténtalo de nuevo!"
+  },
+  "tipo": "dnd_imagen_area"
+}
