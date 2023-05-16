@@ -22,7 +22,7 @@ function buildProd(idApp) {
 
 
 function buildDev(idApp) {
-   // console.log("iniciando el BUILD de producción con el valor de idApp:", idApp);
+   // console.log("iniciando el BUILD de desarrollo con el valor de idApp:", idApp);
     return new Promise((resolve, reject) => {
       webpack(configDev(idApp), (err, stats) => {
         if (err || stats.hasErrors()) {

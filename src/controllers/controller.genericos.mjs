@@ -8,6 +8,12 @@ import {copiarCarpeta} from "../utils/utils-fs-extra.mjs";
 import { writeJson } from "../utils/staticdata.mjs";
 
 
+/**
+ * crearProyecto
+ * Crea un documento en la colección de la actividad respectiva.
+ * @param {*} req 
+ * @param {*} res 
+ */
 export async function crearProyecto(req, res) {
     const {nombrePlantilla} = req.body;
     const {username} = req.params;
@@ -19,7 +25,8 @@ export async function crearProyecto(req, res) {
 
     const tmp = await nuevoDocumento.save ();   
     console.log("tmp", tmp);
-      
+    
+    //copiado de carpeta de plantillas a proy (proyecto)
     const msj = await copiarCarpeta ( nombrePlantilla, tmp._id );   
     res.json({isOk: true, idApp: msj });    
 }
