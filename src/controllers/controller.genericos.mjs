@@ -17,6 +17,9 @@ import { writeJson } from "../utils/staticdata.mjs";
 export async function crearProyecto(req, res) {
     const {nombrePlantilla} = req.body;
     const {username} = req.params;
+
+    console.log(nombrePlantilla, username);
+
     let nuevoDocumento;    
     
     nombrePlantilla == "dnd_imagen_area" &&  (nuevoDocumento = new DndImagenArea({  username }))
@@ -48,12 +51,23 @@ export async function obtenerProyectos (req, res) {
 
 export async function generarPreview(req, res) {
   const { idApp, tipo } = req.params;
+  console.log("idApp:", idApp, "tipo:", tipo);
   let app;  
-   
-  tipo == "dnd_img_area" && ( app = await DndImagenArea.findById(idApp));  
-  tipo == "dnd_txt_img" && ( app = await DndTxtImg.findById(idApp));
 
-  //console.log("app", app);
+  
+    
+  if (tipo === "dnd_img_area") {    
+    console.log("Cargando dnd_img_area");
+    app = await DndImagenArea.findById("64664b86e4ff8494d4277df1")    
+    console.log("dnd_img_area cargada satisfactoriamente");
+  }
+
+  if (tipo === "dnd_txt_img") {
+    app = await DndTxtImg.findById(idApp)
+  } 
+  
+  console.log("app >>>", app);
+
   const resEscritura = await writeJson(app, idApp);
   console.log("resEscritura", resEscritura);
 
