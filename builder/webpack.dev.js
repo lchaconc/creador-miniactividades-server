@@ -10,7 +10,7 @@ const ruleForStyles = {
 const rules = [ruleForStyles];
 
 module.exports = (idApp) => {
-  console.log(`Iniciando ${idApp} en modo de TEST...`);
+  console.log(`Iniciando ${idApp} en modo de DESARROLLO...`);
   console.log("PATH",  path.resolve(__dirname, "../proy")  ) 
 
   return {
@@ -33,7 +33,7 @@ module.exports = (idApp) => {
         patterns: [
           { 
             from: path.resolve(__dirname, `../proy/${idApp}/public/assets`),
-            to: "../dev" 
+            to: "./" 
           }],
       }),
       
