@@ -63,7 +63,8 @@ export async function generarPreview(req, res) {
   }
 
   if (tipo == "dnd_txt_img") {
-    app = await DndTxtImg.findById(idApp)
+    app = await DndTxtImg.findById(idApp);
+    console.log("dnd_txt_img cargada satisfactoriamente");
   } 
   
   console.log("app >>>", app);

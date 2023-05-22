@@ -31,7 +31,7 @@ app.use("/proy/", express.static("./proy"));
 //CRUD
 app.use( "/api/", routerGenericas );
 app.use("/api/dnd-imagen-area", routerDndImagenArea );
-app.use("/api/dnd-txt-img", routerDndTxtImg);
+app.use("/api/dnd_txt_img", routerDndTxtImg);
 
 
 
