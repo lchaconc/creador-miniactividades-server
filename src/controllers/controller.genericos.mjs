@@ -53,8 +53,7 @@ export async function generarPreview(req, res) {
   const idApp = req.params.idApp.trim();
   const tipo = req.params.tipo.trim();
   console.log("idApp:", idApp, "tipo:", tipo);
-  let app;  
-  console.log("TypeOf", typeof tipo);  
+  let app;    
     
 
   if (tipo == "dnd_imagen_area") {    
