@@ -50,19 +50,20 @@ export async function obtenerProyectos (req, res) {
 }
 
 export async function generarPreview(req, res) {
-  const { idApp, tipo } = req.params;
+  const idApp = req.params.idApp.trim();
+  const tipo = req.params.tipo.trim();
   console.log("idApp:", idApp, "tipo:", tipo);
   let app;  
-
-  
+  console.log("TypeOf", typeof tipo);  
     
-  if (tipo === "dnd_img_area") {    
+
+  if (tipo == "dnd_imagen_area") {    
     console.log("Cargando dnd_img_area");
-    app = await DndImagenArea.findById("64664b86e4ff8494d4277df1")    
+    app = await DndImagenArea.findById(idApp);
     console.log("dnd_img_area cargada satisfactoriamente");
   }
 
-  if (tipo === "dnd_txt_img") {
+  if (tipo == "dnd_txt_img") {
     app = await DndTxtImg.findById(idApp)
   } 
   
@@ -78,13 +79,17 @@ export async function generarPreview(req, res) {
 }
 
 export async function generarBuild(req, res) {
-  const { idApp, tipo } = req.params;
+  const idApp = req.params.idApp.trim();
+  const tipo = req.params.tipo.trim();  
+  console.log( "Modo producción -> idApp", idApp, "tipo:", tipo );
+
   let app;
  
-  tipo == "dnd_img_area" && ( app = await DndImagenArea.findById(idApp));  
+  tipo == "dnd_imagen_area" && ( app = await DndImagenArea.findById(idApp));  
   tipo == "dnd_txt_img" && ( app = await DndTxtImg.findById(idApp));  
 
-  //console.log("dndImagenArea", dndImagenArea);
+  console.log("app en desarrolllo:", app);
+
   const resEscritura = await writeJson(app, idApp);
   console.log(resEscritura);
   const stats = await buildProd(idApp);
