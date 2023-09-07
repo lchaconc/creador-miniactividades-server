@@ -30,11 +30,11 @@ export async function obtenerTextos (req, res) {
 export async function insertarCajaArea(req, res) {
   const { idApp } = req.params;
   const { texto, alt} = req.body;  
-  const nombreArchivo = req.file.filename;
+  const urlImg = req.file.filename;
 console.log(req.file.filename);
 
 
-const nuevaCaja = {texto, alt, nombreArchivo};
+const nuevaCaja = {texto, alt, urlImg};
 console.log("Documento a insertar", nuevaCaja);
 
   const dndTxtImg = await DndTxtImg.findOneAndUpdate(
