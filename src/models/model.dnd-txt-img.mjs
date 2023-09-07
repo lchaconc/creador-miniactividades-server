@@ -45,10 +45,15 @@ const dndTextoImagenSchema = new Schema({
         trim: true,
         maxlength: 64,
       },
-      nombreArchivo: {
+      urlImg: {
         type: String,
         trim: true,
-        maxlength: 256,
+        maxlength: 1024,
+      },
+      urlAudio: {
+        type: String,
+        trim: true,
+        maxlength: 1024,
       },
       texto: {
         type: String,

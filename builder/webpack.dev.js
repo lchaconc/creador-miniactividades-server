@@ -7,14 +7,28 @@ const ruleForStyles = {
   use: ["style-loader", "css-loader"],
 };
 
-const rules = [ruleForStyles];
+const ruleBabel = {
+  test: /\.(js|jsx)$/,
+  exclude: /node_modules/,
+  use: {
+    loader: "babel-loader",
+    options: {
+      presets: [
+        ["@babel/preset-env", { corejs: 3.29, useBuiltIns: "usage" }],
+        ["@babel/preset-react", { runtime: "automatic" }]
+      ]
+    }
+  }
+};
+
+const rules = [ruleForStyles, ruleBabel];
 
 module.exports = (idApp) => {
   console.log(`Iniciando ${idApp} en modo de DESARROLLO...`);
   console.log("PATH",  path.resolve(__dirname, "../proy")  ) 
 
   return {
-    entry:  path.resolve(__dirname, `../proy/${idApp}/main.js` ),
+    entry:  path.resolve(__dirname, `../proy/${idApp}/index.js` ),
     output: {
       path: path.resolve(__dirname, `../dev/${idApp}`),
       filename: "bundle.[contenthash].js",
