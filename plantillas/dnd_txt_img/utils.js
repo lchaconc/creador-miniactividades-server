@@ -1,81 +1,64 @@
-import Globals from "./globals";
+//elementos que se sueltan sobre el area
+const soltados = [];
 
+export function ingresarElemento(idItem, areaSeleccionada, cantItemes) {
+  let isCompletados = false;
 
-export function eliminarElemento(id) {
-    const element = document.getElementById(id);
-    element.remove();
-    
+  /*
+   proceso de revisión de elementos de la lista
+   clausula que indica si hay un elemento en la lista igual al que se va a ingresar lo elimina antes
+   para evitar duplicados.
+*/
+
+  soltados.forEach((item, i) => {
+    if (item.idItem == idItem) {
+      soltados.splice(i, 1);
+    }
+  });
+
+  const tmp = { idItem, areaSeleccionada };
+  soltados.push(tmp);
+  console.log("soltados", soltados);
+
+  //verifica longitudes de arreglos para determinar si despliega el botón revisar
+  //En caso de la igualadad significa que todos los elementos están colocados
+
+  if (soltados.length == cantItemes) {
+    console.log("Completados!!!!!", soltados.length);
+    isCompletados = true;
+  } else {
+    console.log("falta Cantidad:", soltados.length);
+    isCompletados = false;
+  }
+
+  return isCompletados;
 }
 
-
-export function renderTexto( elemento, texto, etiqueta, clase ) {    
-        document.getElementById( elemento ).innerHTML = 
-        `<${etiqueta}  ${clase ? `class="${clase}"` : ""  }   > ${texto} </${etiqueta}>`    
-    
+export function desordenar(array) {
+  //Se hace una copia del areglo mediante spread (paso paramátero por valor)
+  //Con el fin de que el primero no se vea afectado
+  const tmp = [...array];
+  return tmp.sort(() => Math.random() - 0.5);
 }
 
+export function verificarCorrectas() {
+  const res = {
+    correctas: [],
+    incorrectas: [],
+  };
+  soltados.forEach(({ idItem, areaSeleccionada }) => {
+    const tmp = idItem.split("-");
+    const id = tmp[1];
+    //console.log(id);
+    //console.log(areaSeleccionada);
 
-export function renderAreasImg (areas) {
-    const divAreasImagen = document.getElementById("divAreasImagen");
-    areas.forEach(area => {
-        //console.log(area);
-        const card = document.createElement("div");        
-        const img = document.createElement("img");        
-        const cardBody = document.createElement("div");       
+    if (id === areaSeleccionada) {
+      res.correctas.push(id);
+    } else {
+      res.incorrectas.push(id);
+    }
+  });
 
-        card.classList.add("col-4", "card", "animate__animated" );        
-        img.classList.add ( "card-img-top", "area-img" );
-        cardBody.classList.add ( "area-drop" );        
-        cardBody.id = area.id;      
+  return res;
 
-
-        img.src = `./${area.archivo}`;
-        img.alt = area.alt;
-        
-               
-        
-        card.append (img);      
-        card.append (cardBody);        
-        divAreasImagen.append(card);
-    });
-    
-}
-
-
-export function renderCajasTexto(cajas) {
-    console.log("cajas", cajas);
-    const divCajasTexto = document.getElementById("divCajasTexto");    
-    const longCajas = cajas.length;    
-    //console.log(longCajas);    
-    
-    cajas.forEach(caja => {
-        const spnAlert = document.createElement("span");
-
-        const iSpeaker = document.createElement("img");        
-                        
-
-        spnAlert.classList.add ("alert", "alert-info", "box", "text-center" , "card-text",  "animate__animated" );
-        spnAlert.setAttribute("draggable", true); 
-        spnAlert.id = caja.id;
-        spnAlert.dataset.idArea = caja.idArea;                 
-        spnAlert.innerText = `🔊 ${caja.texto}`;        
-
-        const divColumna = document.createElement("div");
-        divColumna.classList.add ("col-sm-4", "mb-3", "text-center");
-        
-        divColumna.append(spnAlert);          
-        divCajasTexto.append(divColumna);
-
-        //Creación del emeneto audio par luego insertarlos enpropiedad audios de Globals
-        // Esto con el fin de cargar dicha varbiale en el manejador de evnetos y reproducir su sonido
-        const tmpAudio  = document.createElement("AUDIO");
-        tmpAudio.setAttribute("src", `${caja.idArea}.mp3`);
-        tmpAudio.setAttribute("id", `audio${caja.idArea}`);
-        tmpAudio.setAttribute("preload", "auto" );
-        Globals.audios.push(tmpAudio);
-
-
-    });
-    
-    
 }

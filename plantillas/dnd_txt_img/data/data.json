@@ -1,42 +1,35 @@
 {
-  "textos": {
-    "titulo": "Tipos de Ecosistemas",
-    "instruccion": "Coloca los textos debajo de cada una de las imágenes:",
-    "retroCorrecta": "¡Felicidades! Has completado la actividad de forma correcta.",
-    "retroIncorrecta": "Debes corregir al menos un elemento."
-  },
-  "cajasTexto": [
-    {
-      "id": "txtTerrestre",
-      "texto": "ECOSISTEMA TERRESTRE",
-      "idArea": "terrestre"
-    },
-    {
-      "id": "txtAcuatico",
-      "texto": "ECOSISTEMA ACUÁTICO",
-      "idArea": "acuatico"
-    },
-    {
-      "id": "txtMixto",
-      "texto": "ECOSISTEMA MIXTO",
-      "idArea": "mixto"
+    "_id": "641e0c6688b391a051cf17f4",
+    "username": "luis@correo.de",
+    "tipo": "dnd_txt_img",
+    "fechaCreacion": "2023-03-24T20:47:34.771Z",
+    "cajasAreas": [
+      {
+        "alt": "Bambú y rio",
+        "urlImg": "bambu-rio.jpg",
+        "urlAudio": "mixto.mp3",
+        "texto": "Mixto",
+        "_id":  "641e0d8488b391a051cf17f6"        
+      },
+      {
+        "alt": "Montaña alta",
+        "urlImg": "montana.jpg",
+        "urlAudio": "terrestre.mp3",
+        "texto": "Terrestre",
+        "_id":  "641e0f29721f2b7192ef97b3"        
+      },
+      {
+        "alt": "fondo de mar con peces",
+        "urlImg": "mar.jpg",
+        "urlAudio": "acuatico.mp3",
+        "texto": "Acuático",
+        "_id":  "641e0f29721f2b7192ef97985"        
+      }
+    ],    
+    "textos": {
+      "titulo": "Títitulo DND TXT IMG",
+      "instrucciones": "Instruciones de actividad dndtxtimg",
+      "retroCorrecta": "retro correcta",
+      "retroIncorrecta": "retro incorrecta"
     }
-  ],
-  "areasImagen": [
-    {
-      "id": "mixto",
-      "alt": "bambú con rio",
-      "archivo": "bambu-rio.jpg"
-    },
-    {
-      "id": "terrestre",
-      "alt": "paisaje de Montañas",
-      "archivo": "montana.jpg"
-    },
-    {
-      "id": "acuatico",
-      "alt": "Fondo marino",
-      "archivo": "mar.jpg"
-    }
-  ]
-}
+  }
