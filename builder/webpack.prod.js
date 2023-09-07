@@ -7,16 +7,30 @@ const ZipPlugin = require( "zip-webpack-plugin" );
 const ruleForStyles = {
     test: /\.css$/,
     use: ["style-loader", "css-loader"]
-} 
+};
 
-const rules = [ruleForStyles]
+const ruleBabel = {
+    test: /\.(js|jsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+      options: {
+        presets: [
+          ["@babel/preset-env", { corejs: 3.29, useBuiltIns: "usage" }],
+          ["@babel/preset-react", { runtime: "automatic" }]
+        ]
+      }
+    }
+  };
+
+const rules = [ruleForStyles, ruleBabel]
 //const idApp = argv.idApp;
 module.exports = (idApp) => {    
     console.log(`Iniciando el empaquetado en modo "PRODUCCIÓN" de la aplicación ${idApp}`);    
 
 
     return  {
-    entry:  path.resolve( __dirname,  `../proy/${idApp}/main.js` ),
+    entry:  path.resolve( __dirname,  `../proy/${idApp}/index.js` ),
     output: {
         path: path.resolve(__dirname,  `../dist/${idApp}`),
         filename: "bundle.[contenthash].js"
