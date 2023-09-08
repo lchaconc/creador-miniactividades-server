@@ -1,6 +1,7 @@
 import  multer from 'multer';
 
-// Configuración de Multer para almacenar el archivo en la carpeta "images"
+// Configuración de Multer para almacenar el archivo en la carpeta "assets"
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     //console.log(file);
@@ -14,7 +15,10 @@ const storage = multer.diskStorage({
   }
 });
 
+
 // Crea un middleware de Multer para manejar la carga de archivos
+
+/*
 const upload = multer({
   storage: storage,
   fileFilter: (req, file, cb) => {
@@ -25,5 +29,19 @@ const upload = multer({
     }
   }
 });
+*/
+const upload = multer({
+  storage: storage,
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype.includes('image') || file.mimetype === 'audio/mpeg') {
+      cb(null, true);
+    } else {
+      cb(new Error('El archivo debe ser una imagen o un archivo mp3'), false);
+    }
+  }
+});
+
+
 
 export default upload;
+

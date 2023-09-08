@@ -30,11 +30,16 @@ export async function obtenerTextos (req, res) {
 export async function insertarCajaArea(req, res) {
   const { idApp } = req.params;
   const { texto, alt} = req.body;  
-  const urlImg = req.file.filename;
-console.log(req.file.filename);
+  
+    // Obtener el nombre del archivo de la imagen y del audio
+    const urlImg = req.files.image[0].filename;
+    const urlAudio = req.files.audio[0].filename;
+  
+    console.log("Nombre del archivo de imagen:", urlImg);
+    console.log("Nombre del archivo de audio:", urlAudio);
 
 
-const nuevaCaja = {texto, alt, urlImg};
+const nuevaCaja = {texto, alt, urlImg, urlAudio };
 console.log("Documento a insertar", nuevaCaja);
 
   const dndTxtImg = await DndTxtImg.findOneAndUpdate(
