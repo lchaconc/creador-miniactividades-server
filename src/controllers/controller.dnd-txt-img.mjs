@@ -21,26 +21,34 @@ export async function insertarTextos(req, res) {
   res.json({ isOk: true });
 }
 
-export async function obtenerTextos (req, res) {
-  const {idApp} = req.params;
+export async function obtenerTextos(req, res) {
+  const { idApp } = req.params;
   const app = await DndTxtImg.findById(idApp);
-  res.json({ isOk: true, data: app.textos });  
+  res.json({ isOk: true, data: app.textos });
 }
 
 export async function insertarCajaArea(req, res) {
   const { idApp } = req.params;
-  const { texto, alt} = req.body;  
-  
-    // Obtener el nombre del archivo de la imagen y del audio
-    const urlImg = req.files.image[0].filename;
-    const urlAudio = req.files.audio[0].filename;
-  
-    console.log("Nombre del archivo de imagen:", urlImg);
-    console.log("Nombre del archivo de audio:", urlAudio);
+  const { texto, alt } = req.body;
 
+  // Validar si se envió una imagen
+  if (!req.files.image || req.files.image.length === 0) {
+    return res.status(400).send({ error: "La imagen es requerida." });
+  }
 
-const nuevaCaja = {texto, alt, urlImg, urlAudio };
-console.log("Documento a insertar", nuevaCaja);
+  // Obtener el nombre del archivo de la imagen y del audio
+  const urlImg = req.files.image[0].filename;
+  // Verificar si el audio fue enviado y, de ser así, obtener su nombre
+  let urlAudio;
+  if (req.files.audio && req.files.audio.length > 0) {
+    urlAudio = req.files.audio[0].filename;
+  }
+
+  console.log("Nombre del archivo de imagen:", urlImg);
+  console.log("Nombre del archivo de audio:", urlAudio);
+
+  const nuevaCaja = { texto, alt, urlImg, urlAudio };
+  console.log("Documento a insertar", nuevaCaja);
 
   const dndTxtImg = await DndTxtImg.findOneAndUpdate(
     { _id: idApp },
@@ -50,7 +58,7 @@ console.log("Documento a insertar", nuevaCaja);
 
   res.status(201).json({
     isOk: true,
-    cajasAreas: dndTxtImg.cajasAreas
+    cajasAreas: dndTxtImg.cajasAreas,
   });
 }
 
@@ -63,19 +71,16 @@ export async function eliminarCaja(req, res) {
       { $pull: { cajasAreas: { _id } } },
       { new: true }
     );
-    
-    res.json( {  isOk: true, cajasAreas: dndTxtImg.cajasAreas }  );
+
+    res.json({ isOk: true, cajasAreas: dndTxtImg.cajasAreas });
   } catch (error) {
     console.log(error);
-    res.status(500).json({isOk: false,   msj: "Error en el servidor" });
+    res.status(500).json({ isOk: false, msj: "Error en el servidor" });
   }
-  
 }
 
-export async function obtenerCajas (req, res) {
-  const {idApp} = req.params;
+export async function obtenerCajas(req, res) {
+  const { idApp } = req.params;
   const app = await DndTxtImg.findById(idApp);
-  res.json({ isOk: true, data: app.cajasAreas });  
+  res.json({ isOk: true, data: app.cajasAreas });
 }
-
-
